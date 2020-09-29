@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\scava\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\scava\\.nuget\\packages"
+    ]
+  }
+}

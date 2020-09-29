@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Giriş";
+}
+<h2>Giriş</h2>
+
+<form asp-for="Index" method="post">
+    <div class="row">
+        <div class="col-sm">
+            <div class="input-group input-group-lg mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Kullanıcı Adı</span>
+                </div>
+                <input type="text"
+                       required
+                       oninvalid="this.setCustomValidity('Kullanıcı adı alanının dolu olması gerekmektedir.')"
+                       oninput="setCustomValidity('')"
+                       class="form-control" aria-label="Sizing example input" name="Username"
+                       aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Şifre</span>
+                </div>
+                <input type="password"
+                       required
+                       oninvalid="this.setCustomValidity('Şifre alanının dolu olması gerekmektedir.')"
+                       oninput="setCustomValidity('')"
+                       class="form-control" aria-label="Sizing example input" name="Password"
+                       aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <input type="submit" value="Gönder" class="btn btn-primary btn-lg btn-block">
+        </div>
+    </div>
+</form>     

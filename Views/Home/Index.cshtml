@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Anket.Models.Records>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .bs-linebreak {
+        height: 100px;
+    }
+</style>
+@{
+    if (ViewBag.errorList != null)
+    {
+        <div class="alert alert-danger" role="alert" style="padding-bottom:-10em">
+            <h4 class="alert-heading">HATA!</h4>
+            @for (int i = 0; i < ViewBag.errorList.Count; i++)
+            {
+                <p>
+                    <li>@ViewBag.errorList[i].ToString()</li>
+                </p>
+            }
+        </div>
+    }
+}
+@{
+    if (ViewBag.Successful == true)
+    {
+        <div class="alert alert-success" role="alert" style="padding-bottom:-20px">
+            <center><h4 class="alert-heading">KAYIT BAŞARILI</h4></center>
+        </div>
+    }
+}
+<form method="POST" action="Create">
+    <div class="row">
+        <div class="col-sm">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">İsim</span>
+                </div>
+                <input type="text"
+                       required
+                       oninvalid="this.setCustomValidity('İsim alanının dolu olması gerekmektedir.')"
+                       oninput="setCustomValidity('')"
+                       class="form-control" aria-label="Sizing example input" name="FirstName"
+                       aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Soyisim</span>
+                </div>
+                <input type="text" class="form-control"
+                       required
+                       oninvalid="this.setCustomValidity('Soyisim alanının dolu olması gerekmektedir.')"
+                       oninput="setCustomValidity('')"
+                       aria-label="Sizing example input" name="LastName" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Telefon Numarası</span>
+                </div>
+                <input type="text" class="form-control"
+                       required
+                       oninvalid="this.setCustomValidity('Telefon numarası alanının dolu olması gerekmektedir.')"
+                       oninput="setCustomValidity('')"
+                       aria-label="Sizing example input" name="PhoneNumber" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Müşteri Firma</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" name="CustomerCompany">
+                    <option value="Allianz">Allianz</option>
+                    <option value="Sompo">Sompo</option>
+                    <option value="Neova">Neova</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <input type="submit" value="Gönder" class="btn btn-primary btn-lg btn-block">
+        </div>
+    </div>
+</form>
